@@ -1,1 +1,1 @@
-# TProgramming_2025\nPankratovaElenaNikolaevna
+# TProgramming_2025\ Pankratova Elena Nikolaevna

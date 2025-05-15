@@ -1,5 +1,9 @@
-#TProgramming_2025
+package main
 
+import (
+    "fmt"
+)
 
-
-Pankratova Elena Nikolaevna
+func main() {
+    fmt.Println("Панкратова Елена Николаевна")
+}

@@ -1,14 +1,24 @@
-fmt.Println(вычислить(0.8, 0.4, 1.88)) }
+package main
 
-функция вычисления (a float, b float, x float) float { числитель := math.Pow(math.Pow(xa, 2), 1/8) + math.Pow(x+b, 1/5)
+import (
+    "fmt"
+    "math"
+)
 
-fmt.Println(numerator)
+func вычислить(a float64, b float64, x float64) float64 {
+    numerator := math.Pow((x-a)*(x-a), 1./8.) + math.Pow((x+b), 1./5.)
 
-denominator := math.Pow(math.Pow(x, 3)-math.Pow(a+b, 2), 1/9)
+    fmt.Printf("Числитель = %v\n", numerator)
 
-fmt.Println(denominator)
+    denominator := math.Pow((x*x*x)-(a+b)*(a+b), 1./9.)
 
-result := numerator / denominator
+    fmt.Printf("Знаменатель = %v\n", denominator)
 
-return result
-} }
+    result := numerator / denominator
+
+    return result
+}
+
+func main() {
+    fmt.Println(вычислить(0.8, 0.4, 1.88))
+}

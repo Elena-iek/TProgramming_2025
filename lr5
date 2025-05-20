@@ -1,0 +1,41 @@
+package main
+
+import "fmt"
+
+
+type Свинка struct {
+    Name     string 
+    Color    string 
+    WeightKg int    
+}
+
+
+func NewСвинка(name string, color string, weight int) Свинка {
+    return Свинка{Name: name, Color: color, WeightKg: weight}
+}
+
+func (s Свинка) GetInfo() string {
+    return fmt.Sprintf("%s (%s), вес: %d кг.", s.Name, s.Color, s.WeightKg)
+}
+
+func (s *Свинка) SetColor(newColor string) {
+    s.Color = newColor
+}
+
+func (s *Свинка) Feed(kg int) {
+    s.WeightKg += kg
+}
+
+func main() {
+    piggy := NewСвинка("Петрушка", "Розовый", 50)
+
+    info := piggy.GetInfo()
+    fmt.Println(info)
+
+    piggy.SetColor("Белый")
+
+    piggy.Feed(10)
+
+    updatedInfo := piggy.GetInfo()
+    fmt.Println(updatedInfo)
+}

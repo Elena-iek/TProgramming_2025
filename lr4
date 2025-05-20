@@ -1,0 +1,70 @@
+//Задача А
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+
+func вычислить(a float64, b float64, x float64) float64 {
+    numerator := math.Pow((x-a)*(x-a), 1./8.) + math.Pow((x+b), 1./5.)
+    fmt.Printf("Числитель = %.4f\n", numerator)
+
+    denominator := math.Pow((x*x*x)-(a+b)*(a+b), 1./9.)
+    fmt.Printf("Знаменатель = %.4f\n", denominator)
+
+    result := numerator / denominator
+    return result
+}
+
+func main() {
+    a := 0.8
+    b := 0.4
+
+    xStart := 1.23 
+    xEnd := 7.23   
+    step := 1.2    
+
+    for x := xStart; x <= xEnd+step*0.001; x += step {
+        result := вычислить(a, b, x)
+        fmt.Printf("Результат при x=%.2f: %.4f\n", x, result)
+    }
+}
+
+//Задача Б
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func вычислить(a float64, b float64, x float64) float64 {
+    numerator := math.Pow((x-a)*(x-a), 1./8.) + math.Pow((x+b), 1./5.)
+    fmt.Printf("Числитель при x=%v: %.4f\n", x, numerator)
+
+    denominator := math.Pow((x*x*x)-(a+b)*(a+b), 1./9.)
+    fmt.Printf("Знаменатель при x=%v: %.4f\n", x, denominator)
+
+    result := numerator / denominator
+    return result
+}
+
+func main() {
+    a := 0.8
+    b := 0.4
+
+    xValues := []float64{
+        1.88,
+        2.26,
+        3.84,
+        4.55,
+        -6.21,
+    }
+
+    for _, x := range xValues {
+        result := вычислить(a, b, x)
+        fmt.Printf("Результат при x=%.2f: %.4f\n", x, result)
+    }
+}

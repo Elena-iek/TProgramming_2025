@@ -1,0 +1,24 @@
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func вычислить(a float64, b float64, x float64) float64 {
+    numerator := math.Pow((x-a)*(x-a), 1./8.) + math.Pow((x+b), 1./5.)
+
+    fmt.Printf("Числитель = %v\n", numerator)
+
+    denominator := math.Pow((x*x*x)-(a+b)*(a+b), 1./9.)
+
+    fmt.Printf("Знаменатель = %v\n", denominator)
+
+    result := numerator / denominator
+
+    return result
+}
+
+func main() {
+    fmt.Println(вычислить(0.8, 0.4, 1.88))
+}
